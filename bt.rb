@@ -114,6 +114,9 @@ else
 	end
 end
 
+# rename app/assets/application.css to application.css.scss
+run 'mv app/assets/application.css app/assets/application.css.scss'
+
 # gsub application.html.erb : adding container
 gsub_file 'app/views/layouts/application.html.erb', '<%= yield %>', "<div class='container'><%= yield %></div>"
 
