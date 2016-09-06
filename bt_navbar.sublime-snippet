@@ -1,0 +1,50 @@
+<snippet>
+	<content><![CDATA[
+<!-- ================= navbar ==================== -->  
+<nav class="navbar navbar-$1" role="navigation">
+	<div class="container-fluid">
+		<!-- ========= .navbar-header  ============= -->  
+									
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#$2">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">$3</a>
+		</div>
+		
+		<!-- =========== end .nabar-header =========  -->
+
+
+		<!-- =========== .collapse =============  -->
+		<div class="collapse navbar-collapse" id="$2">
+			<ul class="nav navbar-nav navbar-right$4">
+				<!-- if erb <li><%= link_to '$5' , _path %></li> -->
+				<li class="active"><a href="#">$5</a></li>
+				
+				<!-- ========= dropdown  ========= -->
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">$6<span class="caret"></span></a>
+					<ul class="dropdown-menu">
+            			<li><a href="#">$7</a></li>
+            			<li role="separator" class="divider"></li>
+            			<li><a href="#">$8</a></li>
+            		</ul>
+				</li>
+
+				<!--  ========== end dropdown =======  -->
+			</ul>
+		</div>
+		<!-- =========== end .collapse ============  -->
+	</div>
+</nav>
+<!-- ================= end : navbar ==================== -->  
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bt:navbar</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

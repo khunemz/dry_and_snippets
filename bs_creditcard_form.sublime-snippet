@@ -1,0 +1,137 @@
+<snippet>
+	<content><![CDATA[
+
+<!-- START: MAIN WRAPPER -->
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    
+    <!-- START : PAYEMENT-PANEL -->
+    <div id="payment-panel" class="panel panel-default">
+
+        <div class="panel-body">
+
+            <div class="row heading">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <h4>รายละเอียดการชำระเงิน</h4>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <img src="_card_form/visa.png" id="visa" alt="" class="img-responsive" height="50" width="60">
+                    <img src="_card_form/master-card.png" id="master-card" alt="" class="img-responsive" height="50" width="60">
+                </div>
+            </div><!-- END: .row .heading -->
+            
+            <div class="row payment-details">
+                <form>
+                    <!-- START: .address -->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 address">
+
+                        <div class="form-group">
+                            <label for="">ที่อยู่</label>
+                            <input id="address" class="form-control" type="text" placeholder="ที่อยู่">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">จังหวัด</label>
+                            <input id="city" class="form-control" type="text" placeholder="จังหวัด">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">รหัสไปรษณีย์</label>
+                            <input id="postal" class="form-control" type="text" placeholder="รหัสไปรษณีย์">
+                        </div>
+
+                    </div><!-- END: .address -->
+
+                    <!-- START: .credit-card -->
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 credit-card">
+                        <div class="form-group">
+                            <label for="">ชื่อเจ้าของบัตรเครดิต</label>
+                            <input id="card-holder" class="form-control" type="text" placeholder="สมชาย ใจดี">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">เลขบัตรเครดิต</label>
+                            <input type="text" class="form-control" id="card-number" placeholder="**** **** **** ****">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">เลข cvc 
+                                <div class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="right" title="เลข cvc หลังบัตร"></div>
+                            </label>
+                            <input type="text" class="form-control" id="card-cvc" placeholder="***" >
+                        </div>
+
+                        <!-- START: expiry -->
+                        <div class="row">
+                            
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <select class="form-control input-sm" name="month" id="card-month">
+                                    <option value = "1">01 - มกราคม</option>
+                                    <option value = "2">02 - กุมภาพันธ์</option>
+                                    <option value = "3">03 - มีนาคม</option>
+                                    <option value = "4">04 - เมษายน</option>
+                                    <option value = "5">05 - พฤษภาคม</option>
+                                    <option value = "6">06 - มิถุนายน</option>
+                                    <option value = "7">07 - กรกฎาคม</option>
+                                    <option value = "8">08 - สิงหาคม</option>
+                                    <option value = "9">09 - กันยายน</option>
+                                    <option value = "10">10 - ตุลาคม</option>
+                                    <option value = "11">11 - พฤศจิการยน</option>
+                                    <option value = "12">12 - ธันวาคม</option>
+                                </select>
+                            </div>
+
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <select class="form-control input-sm" name="year" id="card-year">
+                                    <option value = "2019">2019</option>
+                                    <option value = "2020">2020</option>
+                                    <option value = "2021">2021</option>
+                                    <option value = "2022">2022</option>
+                                    <option value = "2023">2023</option>
+                                    <option value = "2024">2024</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <!-- END: expiry -->
+
+                    </div><!-- END: .credit-card -->
+                        
+            </div><!-- END: .row .payment-details -->
+                <hr>
+                    <div class="row button">
+                            
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <button class="btn btn-primary btn-block">
+                                        ชำระเงิน
+                                    </button>
+                                </div>
+                            </div>
+                        </div><!-- END: .button -->
+                    </div><!-- END: .panel-body -->
+                </form>
+    </div>
+    <!-- END : .panel -->
+</div>
+<!-- END: MAIN WRAPPER -->
+
+<!-- 
+    Style: 
+    #visa , #master-card {
+    display: inline;
+    padding-left: 5px;
+    }
+    Script: 
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+	Images: 
+    add visa.png and master-card.png
+-->
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>form:card</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

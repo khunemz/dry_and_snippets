@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[
+ <!-- ================= VENDOR CSS ================== -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+ <!--  <link rel="stylesheet" href="bower_components/bootswatch/cosmo/bootstrap.min.css"> -->
+  <script src="bower_components/modernizr/src/modernizr.js"></script>
+  <!-- ================= END : VENDOR CSS ================== -->
+
+  <!-- ============== START : PLUGIN CSS =================== -->
+  <link rel="stylesheet" href="bower_components/sidr/dist/stylesheets/jquery.sidr.light.min.css">
+  <!-- ============== END : PLUGIN CSS ================= -->
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bt:head</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

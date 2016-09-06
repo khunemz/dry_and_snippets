@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[
+model : function($1) {
+	return $2;
+},
+setupController : function(controller , model){
+	controller.set('$3', model);
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>emmh</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

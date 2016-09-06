@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+<% form_for(@$1 , html: { :class => '$2' }) do |f| %>
+	<div class='field'>
+		<%= f.lable :$3 %>
+		<%= f.text_field :$3 %>
+	</div>
+
+	<div class='field'>
+		<%= label_tag :$4 %>
+		<%= text_field_tag :$4 %>
+	</div>
+
+	<div class='actions'>
+		<%= f.submit '$5' %>
+	</div>	
+<% end %>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>formfor</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

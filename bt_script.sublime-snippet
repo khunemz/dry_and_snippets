@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+ <!-- ================= VENDOR JS ================== -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+   <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <!-- ================= END VENDOR JS ================== -->
+
+  <!-- ================= START PLUGIN JS ================ -->
+  <script src="bower_components/sidr/dist/jquery.sidr.min.js"></script>
+  <!-- ================= END PLUGIN JS ================== -->
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bt:script</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

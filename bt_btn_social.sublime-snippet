@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+<a class="btn btn-block btn-social btn-$1">
+	<span class="fa fa-$1"></span> Sign in with $1
+</a>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bt:btn_social</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
