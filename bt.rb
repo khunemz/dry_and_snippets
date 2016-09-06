@@ -140,3 +140,6 @@ git add: ".", commit: "-m 'initial commit'"
 
 # list dirs
 run 'ls'
+
+# delete self
+run 'rm -rf bt.rb'
