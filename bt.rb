@@ -133,7 +133,7 @@ rake "db:create"
 # Git
 git :init
 append_file ".gitignore",  "config/database.yml"
-append_file ".gitignore",  "config/secret.yml"
+append_file ".gitignore",  "\n config/secret.yml"
 run 'cp config/database.yml config/example_database.yml'
 run 'cp config/secret.yml config/example_secret.yml'
 git add: ".", commit: "-m 'initial commit'"
