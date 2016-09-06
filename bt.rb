@@ -137,3 +137,6 @@ append_file ".gitignore",  "config/secret.yml"
 run 'cp config/database.yml config/example_database.yml'
 run 'cp config/secret.yml config/example_secret.yml'
 git add: ".", commit: "-m 'initial commit'"
+
+# list dirs
+run 'ls'
