@@ -116,7 +116,7 @@ alias add:unicorn="echo '\n gem \"unicorn\"' >> Gemfile && bundle install && tou
 alias add:procfile="touch Procfile && echo 'web: bundle exec unicorn -p \$PORT -c ./config/unicorn.rb' >> Procfile"
 
 # Ember
-alias add:ember=" echo '\n gem \"ember-rails\"' >> Gemfile && bundle install && rails generate ember:bootstrap && mkdir app/views/application && touch app/views/application/index.html.erb && sed -i '/do/a \n root to: \"application#index\"' config/routes.rb "
+alias add:ember=" echo '\n gem \"ember-rails\"' >> Gemfile && bundle install && rails generate ember:bootstrap && mkdir app/views/application && touch app/views/application/index.html.erb && sed -i '/do/a \n root to: \"application#index\"' config/routes.rb && echo 'config.ember.variant = :development' >> config/environments/development.rb && && echo 'config.ember.variant = :production' >> config/environments/production.rb && && echo 'config.ember.variant = :test' >> config/environments/test.rb"
 
 # Gem
 alias add:devise="echo '\n gem \"devise\"' >> Gemfile && bundle install && rails g devise:install"
