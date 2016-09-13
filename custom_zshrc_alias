@@ -75,6 +75,9 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+PATH=~/.composer/vendor/bin:$PATH
+
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -116,7 +119,7 @@ alias add:unicorn="echo '\n gem \"unicorn\"' >> Gemfile && bundle install && tou
 alias add:procfile="touch Procfile && echo 'web: bundle exec unicorn -p \$PORT -c ./config/unicorn.rb' >> Procfile"
 
 # Ember
-alias add:ember=" echo '\n gem \"ember-rails\"' >> Gemfile && bundle install && rails generate ember:bootstrap && mkdir app/views/application && touch app/views/application/index.html.erb && sed -i '/do/a \n root to: \"application#index\"' config/routes.rb && echo 'config.ember.variant = :development' >> config/environments/development.rb && && echo 'config.ember.variant = :production' >> config/environments/production.rb && && echo 'config.ember.variant = :test' >> config/environments/test.rb"
+alias add:ember=" echo '\n gem \"ember-rails\"' >> Gemfile && bundle install && rails generate ember:bootstrap && mkdir app/views/application && touch app/views/application/index.html.erb && sed -i '/do/a \n root to: \"application#index\"' config/routes.rb && echo 'config.ember.variant = :development' >> config/environments/development.rb && echo 'config.ember.variant = :production' >> config/environments/production.rb && echo 'config.ember.variant = :test' >> config/environments/test.rb"
 
 # Gem
 alias add:devise="echo '\n gem \"devise\"' >> Gemfile && bundle install && rails g devise:install"
@@ -134,6 +137,7 @@ alias rds='rake db:seed'
 alias rdmd='rake db:migrate RAILS_ENV=development'
 alias rdmt='rake db:migrate RAILS_ENV=development'
 alias bdi='bundle install'
+alias bx='bundle exec'
 
 
 # alias Git
@@ -179,13 +183,19 @@ alias eg:con='ember generate controller'
 alias eg:md='ember generate model'
 alias eg:r='ember generate route'
 alias eg:h='ember generate helper'
+alias eg:init='ember generate initializer'
+alias eg:mixin='ember generate mixin'
 alias eg:sz='ember generate serializer'
-alias eg:t='ember generate template'
+alias eg:service='ember generate service'
+alias eg:template='ember generate template'
 alias eg:trans='ember generate transform'
 alias eg:v='ember generate view'
 alias eg:mock='ember generate http-mock'
 alias eg:proxy='ember generate http-proxy'
 alias eg:resource='ember generate resource'
+alias eg:t:acceptance='ember generate acceptance-test'
+alias eg:t:component='ember generate component-test'
+alias eg:t:helper='ember generate helper-test'
 alias ei:bootstrap="ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import \"bootstrap\";' > ./app/styles/app.scss && rm ./app/styles/app.css"
 
 # npm
@@ -195,7 +205,7 @@ alias npmg="npm i -g "
 alias bi="bower install"
 
 # mysql
-alias mylg='mysql -u m -p'
+alias my:login='mysql -u m -p'
 alias mysqlstart='sudo /opt/local/share/mysql5/mysql/mysql.server start'
 alias mysqlstop='sudo /opt/local/share/mysql5/mysql/mysql.server stop'
 alias mysqlrestart='sudo /opt/local/share/mysql5/mysql/mysql.server restart'
