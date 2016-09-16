@@ -91,23 +91,24 @@ PATH=~/.composer/vendor/bin:$PATH
 
 alias rn='rails new'
 alias r4n='rails _4.2.7_ new'
-alias rgm='rails generate migration'
-alias rgc='rails generate controller'
-alias rgmd='rails generate model'
-alias rgsc='rails generate scaffold'
-alias rgrs='rails generate resource'
+alias rg:m='rails generate migration'
+alias rg:c='rails generate controller'
+alias rg:md='rails generate model'
+alias rg:sc='rails generate scaffold'
+alias rg:rs='rails generate resource'
+alias rg:integration='rails generate integration_test'
 alias rs='rails server'
 alias rg='rails generate'
 alias rd='rails destroy'
-alias rdb='rails dbconsole'
 alias rc='rails console'
 alias rp='rails plugin'
 alias ru='rails runner'
-alias rgsz='rails g serializer'
+alias rg:sz='rails g serializer'
 
 
 # Bootstrap
-alias add:bootstrap="echo '\n gem \"bootstrap-sass\"' >> Gemfile && bundle install && echo '\n @import \"bootstrap-sprockets\"; @import \"bootstrap\";' >> app/assets/stylesheets/application.css && mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss"
+alias add:bootstrap="echo '\n gem \"bootstrap\", \"~> 4.0.0.alpha4\"' >> Gemfile && bundle install && echo '/*\n*= require_self\n*= require_tree .\n*/\n @import \"bootstrap\";' >> app/assets/stylesheets/application.css && mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss && echo \"//= require bootstrap-sprockets\n//= require bootstrap
+\" >> app/assets/javascripts/application.js"
 
 alias add:pg="echo '\n gem \"pg\"' >> Gemfile && bundle install"
 # Unicorn
@@ -129,19 +130,20 @@ alias initialize_active_record="touch config/initializers/active_record.rb && ec
 
 
 #rake
-alias rt='rake test'
-alias rr='rake routes'
-alias rdm='rake db:migrate'
-alias rdr='rake db:rollback'
-alias rds='rake db:seed'
-alias rdmd='rake db:migrate RAILS_ENV=development'
-alias rdmt='rake db:migrate RAILS_ENV=development'
-alias bdi='bundle install'
-alias bx='bundle exec'
+alias rk:t='rake test'
+alias rk:r='rake routes'
+alias rk:m='rake db:migrate'
+alias rk:r='rake db:rollback'
+alias rk:s='rake db:seed'
+alias rk:m:dev='rake db:migrate RAILS_ENV=development'
+alias rk:m:test='rake db:migrate RAILS_ENV=development'
+alias bd:i='bundle install'
+alias bd:ex='bundle exec'
 
 
 # alias Git
 alias gcm='git commit -m '
+alias gp:om ='git push origin master'
 
 # Laravel
 alias pa='php artisan'
@@ -166,6 +168,7 @@ alias cgr='composer global require'
 
 # ember 
 alias es='ember serve'
+alias es:t='ember test --server'
 alias en='ember new'
 alias ea='ember addon'
 alias eb='ember build'
