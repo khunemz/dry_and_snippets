@@ -1,0 +1,21 @@
+<snippet>
+  <content><![CDATA[
+<form name="$1" id="$1" method="$2" action="$3" enctype="multipart/form-data" class="form-group">
+    
+  <div class="form-group">
+    <label for="$4">$4 :</label>
+    <input type="text" name="$4" id="$4" class="form-control" value="{{ old('$4') }}"> 
+  </div>
+
+  l:textarea$5
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-$6 brn-$7">$8</button>
+  </div>
+</form>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:form</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

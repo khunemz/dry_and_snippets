@@ -1,0 +1,40 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"All Autocomplete",
+		"AngularJS",
+		"Better CoffeeScript",
+		"Bootstrap 4 Snippets",
+		"Coffee Color Scheme",
+		"DashDoc",
+		"Dayle Rees Color Schemes",
+		"DocBlockr",
+		"Emmet",
+		"Foundation 5 Snippets",
+		"Foundation Snippets",
+		"Handlebars",
+		"HTML Snippets",
+		"HTML5",
+		"Laravel 5 Snippets",
+		"Laravel Blade Highlighter",
+		"Material Theme",
+		"Package Control",
+		"Rails Developer Snippets",
+		"Ruby Completions",
+		"Sass",
+		"SCSS Compiler",
+		"SCSS Snippets",
+		"SublimeLinter",
+		"SublimeLinter-coffee",
+		"SublimeLinter-contrib-scss-lint",
+		"SublimeLinter-contrib-sublime-syntax",
+		"SublimeLinter-csslint",
+		"Theme - Phoenix",
+		"Theme - Spacegray"
+	]
+}

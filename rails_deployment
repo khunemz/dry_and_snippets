@@ -1,0 +1,145 @@
+rails_deployment_recipe
+::for deployment tasks
+
+- Ubuntu
+- Nginx
+- Postgresql
+- Unicorn (see ep 293)
+- rbenv
+- Linode VPS
+
+Linode
+- Rebuild
+    - use Ubuntu then ‘Rebuild’
+- Remote access to ssh logging in to server
+- apt-get -y update (Update latest version Packages)
+# install nginx pacakges
+- apt-get -y install curl git-core python-software-properties (add Git repo to app)
+- add-apt-repository ppa:nginx/stable (get recent version of nginx)
+- apt-get -y update
+- apt-get -y install nginx
+- service nginx start (run nginx with ip-address)
+# install postgres
+- add-apt-repository ppa:pitti/postgresql (add repo postgresql latest verstion)
+- apt-get -y update
+- apt-get -y install postgresql libpq-dev (build gem postgresql)
+- sudo -u postgres psql (access postgresql)
+- \password (new password)
+- create user app_name password ‘secret’
+- create database blog_production owner app_name
+- \q (quit postgresql)
+# install post fix mail
+- apt-get -y install telnet postfix (install mail transferer then use -internet side) 
+# install node js
+- add-apt-repository ppa:chris-lea/node.js
+- apt-get -y update
+- apt-get -y install nodejs
+# set up granted user
+- adduser deployer —ingroup admin
+- su deployer
+# install Ruby
+- curl https://raw.githubusercontent.com/fesplugas/rbenv-installer/master/bin/rbenv-installer | bashv
+- vim ~/.bashrc (paste rbenv special recipe to bash)
+- . ~/.bashrc (quit bash)
+- rbenv bootstrap-ubuntu-10-04
+- rbenv install 2.0.0
+- rbenv global 2.0.0
+- ruby -v (check ruby version)
+- gem install bundler —no-ri —no-rdoc
+-  rbenv rehash
+- bundle (check bundle)
+- ssh git@github.com
+# set up before push git
+- cp config/database.yml config/database.example.yml
+- git add .
+- git commit -m ‘init’
+- git remote add URL
+- git push origin master
+# Using capistrano and unicorn and bundle
+- capify . (set up capistrano)
+# set up capistrano
+- require ‘bundler/capistrano’
+#@@ capistrano recipe on deploy.rb
+#@@ see https://github.com/ryanb/railscasts-episodes/blob/master/episode-335/blog-nginx/config/deploy.rb
+
+require "bundler/capistrano"
+
+
+	server "72.14.183.209", :web, :app, :db, primary: true
+
+
+	set :application, "blog"
+	set :user, "deployer"
+	set :deploy_to, "/home/#{user}/apps/#{application}"
+	set :deploy_via, :remote_cache
+	set :use_sudo, false
+
+
+	set :scm, "git"
+	set :repository, "git@github.com:ryanb/#{application}.git"
+	set :branch, "master"
+
+
+	default_run_options[:pty] = true
+	ssh_options[:forward_agent] = true
+
+
+	after "deploy", "deploy:cleanup" # keep only the last 5 releases
+
+
+	namespace :deploy do
+	  %w[start stop restart].each do |command|
+	    desc "#{command} unicorn server"
+	    task command, roles: :app, except: {no_release: true} do
+	      run "/etc/init.d/unicorn_#{application} #{command}"
+	    end
+	  end
+
+
+	  task :setup_config, roles: :app do
+	    sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
+	    sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
+	    run "mkdir -p #{shared_path}/config"
+	    put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+	    puts "Now edit the config files in #{shared_path}."
+	  end
+	  after "deploy:setup", "deploy:setup_config"
+
+
+	  task :symlink_config, roles: :app do
+	    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+	  end
+	  after "deploy:finalize_update", "deploy:symlink_config"
+
+
+	  desc "Make sure local git is in sync with remote."
+	  task :check_revision, roles: :web do
+	    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+	      puts "WARNING: HEAD is not the same as origin/master"
+	      puts "Run `git push` to sync changes."
+	      exit
+	    end
+	  end
+	  before "deploy", "deploy:check_revision"
+	end
+# @@ end capistrano recipe 
+
+- make dir nginx.cof (see details railscasts 293)
+- make dir unicorn.rb (see details railscasts 293)
+- make dir unicorn_init.sh
+- chmod +x config/unicorn_init.sh
+- git add .
+- git commit -m ‘deployment config’
+- cap deploy:setup
+- ssh deployer@123.12.12.1
+- cd apps/app_name/shared/config
+- vim database.yml (then add credential of database
+# copy ssh credential to deployer key (user’s password so you need not to type password over and over again)
+- cat ~/.ssh/id_rsa.pub | ssh deployer@72.14.183.209 ‘cat >> ~/.ssh/authorized_keys’
+# add github ssh
+- ssh-add -K (add ssh to keychain)
+- cap deploy:cold
+# remove nginx default index page
+- sudo rm /etc/nginx/sites-enable/default
+- sudo service nginx restart
+- sudo update-rc.d unicorn_app_name defaults

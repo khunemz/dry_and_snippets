@@ -1,16 +1,9 @@
 <snippet>
 	<content><![CDATA[
-import Ember from 'ember';
-
-export default Ember.$1.extend({
-	$2 ,
-  setupController: function (controller , model) {
-
-  }
-});
+{{#link-to '$1' tagName="$2"}}<a href="">$3</a>{{/link-to}}
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>emim</tabTrigger>
+	<tabTrigger>emlink</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<!-- <scope>source.python</scope> -->
 </snippet>

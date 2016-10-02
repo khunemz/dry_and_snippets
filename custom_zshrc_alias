@@ -1,0 +1,226 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/chutipongroobklom/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+PATH=~/.composer/vendor/bin:$PATH
+
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# alias Rails
+
+alias rn='rails new'
+alias r4n='rails _4.2.7_ new'
+alias rg:m='rails generate migration'
+alias rg:c='rails generate controller'
+alias rg:md='rails generate model'
+alias rg:sc='rails generate scaffold'
+alias rg:rs='rails generate resource'
+alias rg:integration='rails generate integration_test'
+alias rs='rails server'
+alias rg='rails generate'
+alias rd='rails destroy'
+alias rc='rails console'
+alias rp='rails plugin'
+alias ru='rails runner'
+alias rg:sz='rails g serializer'
+
+
+# Bootstrap
+alias add:bootstrap="echo '\n gem \"bootstrap\", \"~> 4.0.0.alpha4\"' >> Gemfile && bundle install && echo '/*\n*= require_self\n*= require_tree .\n*/\n @import \"bootstrap\";' >> app/assets/stylesheets/application.css && mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss && echo \"//= require bootstrap-sprockets\n//= require bootstrap
+\" >> app/assets/javascripts/application.js"
+
+alias add:pg="echo '\n gem \"pg\"' >> Gemfile && bundle install"
+# Unicorn
+alias add:unicorn="echo '\n gem \"unicorn\"' >> Gemfile && bundle install && touch 'config/unicorn.rb' && echo 'worker_processes 3 \n timeout 30 \n preload_app true  \n before_fork do |server, worker| \n\t if defined?(ActiveRecord::Base) \n\t\t ActiveRecord::Base.connection.disconnect! \n\t\t Rails.logger.info \"Disconnected from ActiveRecord\" \n\t end \n\n\t sleep 1 \n end \n\n after_fork do |server, worker| \n\t if defined?(ActiveRecord::Base) \n\t\t ActiveRecord::Base.establish_connection \n\t\t  Rails.logger.info \"Connected to ActiveRecord\" \n\t end \n end
+'>> config/unicorn.rb
+"
+
+# Procfile
+alias add:procfile="touch Procfile && echo 'web: bundle exec unicorn -p \$PORT -c ./config/unicorn.rb' >> Procfile"
+
+# Ember
+alias add:ember=" echo '\n gem \"ember-rails\"' >> Gemfile && bundle install && rails generate ember:bootstrap && mkdir app/views/application && touch app/views/application/index.html.erb && sed -i '/do/a \n root to: \"application#index\"' config/routes.rb && echo 'config.ember.variant = :development' >> config/environments/development.rb && echo 'config.ember.variant = :production' >> config/environments/production.rb && echo 'config.ember.variant = :test' >> config/environments/test.rb"
+
+# Gem
+alias add:devise="echo '\n gem \"devise\"' >> Gemfile && bundle install && rails g devise:install"
+alias add:capistrano="echo '\n gem \"capistrano\"' >> Gemfile && bundle install"
+alias initialize_active_record="touch config/initializers/active_record.rb && echo 'ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection)
+' >> config/initializers/active_record.rb "
+
+
+#rake
+alias rk:t='rake test'
+alias rk:r='rake routes'
+alias rk:m='rake db:migrate'
+alias rk:r='rake db:rollback'
+alias rk:s='rake db:seed'
+alias rk:m:dev='rake db:migrate RAILS_ENV=development'
+alias rk:m:test='rake db:migrate RAILS_ENV=development'
+alias bd:i='bundle install'
+alias bd:ex='bundle exec'
+
+
+# alias Git
+alias gcm='git commit -m '
+alias gp:om ='git push origin master'
+
+# Laravel
+alias pa='php artisan'
+alias pa:s='php artisan serve'
+alias pam:m='php artisan make:migration'
+alias pam:c='php aritsan make:controller'
+alias pam:md='php aritsan make:model'
+alias pa:m='php artisan migrate'
+alias pa:mr='php artisan migrate:rollback'
+alias pa:rl='php artisan route:list'
+
+# Composer
+alias c='composer'
+alias csu='composer self-update'
+alias cu='composer update'
+alias cr='composer require'
+alias ci='composer install'
+alias ccp='composer create-project'
+alias cdu='composer dump-autoload'
+alias cgu='composer global update'
+alias cgr='composer global require'
+
+# ember 
+alias es='ember serve'
+alias es:t='ember test --server'
+alias en='ember new'
+alias ea='ember addon'
+alias eb='ember build'
+alias ed='ember destroy'
+alias eg='ember generate'
+alias eh='ember help'
+alias ein='ember init'
+alias ei='ember install'
+alias et='ember test'
+alias eu='ember update'
+alias ev='ember version'
+alias eg:a='ember generate adapter'
+alias eg:com='ember generate component'
+alias eg:con='ember generate controller'
+alias eg:md='ember generate model'
+alias eg:r='ember generate route'
+alias eg:h='ember generate helper'
+alias eg:init='ember generate initializer'
+alias eg:mixin='ember generate mixin'
+alias eg:sz='ember generate serializer'
+alias eg:service='ember generate service'
+alias eg:template='ember generate template'
+alias eg:trans='ember generate transform'
+alias eg:v='ember generate view'
+alias eg:mock='ember generate http-mock'
+alias eg:proxy='ember generate http-proxy'
+alias eg:resource='ember generate resource'
+alias eg:t:acceptance='ember generate acceptance-test'
+alias eg:t:component='ember generate component-test'
+alias eg:t:helper='ember generate helper-test'
+alias ei:bootstrap="ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import \"bootstrap\";' > ./app/styles/app.scss && rm ./app/styles/app.css"
+
+# npm
+alias npmg="npm i -g "
+
+# bower
+alias bi="bower install"
+
+# mysql
+alias my:login='mysql -u m -p'
+alias mysqlstart='sudo /opt/local/share/mysql5/mysql/mysql.server start'
+alias mysqlstop='sudo /opt/local/share/mysql5/mysql/mysql.server stop'
+alias mysqlrestart='sudo /opt/local/share/mysql5/mysql/mysql.server restart'
+
+# my iMac
+alias cd:support='cd Library/Application\ Support'
+alias cd:ember='cd _code/learn/ember'
+alias cd:rails='cd _code/learn/rails'
+alias cd:laravel='cd _code/learn/laravel'
+alias cd:learn='cd _code/learn'
+alias cd:sublime='cd Library/Application\ Support/Sublime\ Text\ 3'
+alias rf='rm -rf'
+
+#phpunit
+alias phpu:filter='phpunit --filter '

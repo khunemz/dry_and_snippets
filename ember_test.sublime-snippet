@@ -1,0 +1,20 @@
+<snippet>
+  <content><![CDATA[
+test('$1' , function (assert) {
+  //arrange
+  visit('$2');
+  
+  //action
+  click('$3');
+
+  //assert
+  andThen(function () {
+    assert.equal($4 , $5 , '$6');
+  });
+});
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>em:test</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

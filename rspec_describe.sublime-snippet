@@ -1,0 +1,11 @@
+<snippet>
+  <content><![CDATA[
+RSpec.describe '$1' do
+  $2
+end
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>rdesc</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
