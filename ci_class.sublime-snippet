@@ -1,15 +1,22 @@
 <snippet>
   <content><![CDATA[
-/*
-# =================================================
-# $1
-#
-# $2
-# =================================================
-*/
+<?php 
+
+class $1 extends CI_Controller
+{
+  public function __construct()
+  {
+    parent::__construct();
+  }
+
+  public function $2($3)
+  {
+    $4;
+  }
+}
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>pcom1</tabTrigger>
+  <tabTrigger>ci:cl</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>
