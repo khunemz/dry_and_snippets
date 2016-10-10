@@ -1,0 +1,31 @@
+<snippet>
+  <content><![CDATA[
+\$('$1').on('click' , function () {
+    //set val object
+    var $2 = {
+      $3: \$$3.val(),
+    };
+  $.ajax({
+    type: 'POST',
+    url: '$4',
+    data: $2,
+    success: function (response) 
+    {
+      //do something ..
+      $5
+      $('#spinner').hide();
+    },
+    error: function (jqXHR, textStatus , errorThrown)
+    {
+      console.log(textStatus , errorThrown);
+      $('#spinner').hide();
+    }
+
+  });
+});
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>jq:ajax:post</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

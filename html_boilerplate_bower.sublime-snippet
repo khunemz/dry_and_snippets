@@ -1,0 +1,49 @@
+<snippet>
+  <content><![CDATA[
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Chutipong Roobklom website</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- START : Bootstrap -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+        <!-- END : Bootstrap -->
+         <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="bower_components/bulma/css/bulma.css">-->
+        <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+
+        <!-- START : Custom style -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- END : Custom style -->
+        <script src="bower_components/modernizr/src/modernizr.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      
+        <!-- START : Vendors scripts -->
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/mustache.js/mustache.min.js"></script>
+        <!-- END : Vendors scripts -->
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>html:bp:bower</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
