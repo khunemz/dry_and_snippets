@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/chutipongroobklom/.oh-my-zsh
 
+# Path to PHP7
+export PATH=/usr/local/php5/bin:$PATH;
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -93,18 +96,22 @@ alias rn='rails new'
 alias r4n='rails _4.2.7_ new'
 alias rg:m='rails generate migration'
 alias rg:c='rails generate controller'
+alias rd:c='rails destroy controller'
 alias rg:md='rails generate model'
+alias rd:md='rails destroy model'
 alias rg:sc='rails generate scaffold'
+alias rd:sc='rails destroy scaffold'
 alias rg:rs='rails generate resource'
+alias rd:rs='rails destroy resource'
 alias rg:integration='rails generate integration_test'
 alias rs='rails server'
+alias rs:p='rails server --port'
 alias rg='rails generate'
 alias rd='rails destroy'
 alias rc='rails console'
 alias rp='rails plugin'
 alias ru='rails runner'
 alias rg:sz='rails g serializer'
-
 
 # Bootstrap
 alias add:bootstrap="echo '\n gem \"bootstrap\", \"~> 4.0.0.alpha4\"' >> Gemfile && bundle install && echo '/*\n*= require_self\n*= require_tree .\n*/\n @import \"bootstrap\";' >> app/assets/stylesheets/application.css && mv app/assets/stylesheets/application.css app/assets/stylesheets/application.css.scss && echo \"//= require bootstrap-sprockets\n//= require bootstrap
@@ -128,43 +135,49 @@ alias add:capistrano="echo '\n gem \"capistrano\"' >> Gemfile && bundle install"
 alias initialize_active_record="touch config/initializers/active_record.rb && echo 'ActiveRecord::Base.send(:include, ActiveModel::ForbiddenAttributesProtection)
 ' >> config/initializers/active_record.rb "
 
-
 #rake
 alias rk:t='rake test'
 alias rk:r='rake routes'
-alias rk:m='rake db:migrate'
-alias rk:r='rake db:rollback'
-alias rk:s='rake db:seed'
-alias rk:m:dev='rake db:migrate RAILS_ENV=development'
-alias rk:m:test='rake db:migrate RAILS_ENV=development'
+alias rk:db:m='rake db:migrate'
+alias rk:db:r='rake db:rollback'
+alias rk:db:s='rake db:seed'
+alias rk:db:m:dev='rake db:migrate RAILS_ENV=development'
+alias rk:db:m:test='rake db:migrate RAILS_ENV=development'
 alias bd:i='bundle install'
 alias bd:ex='bundle exec'
-
+alias bd='bundle'
 
 # alias Git
+alias gi='git init'
+alias gr='git reset --head'
 alias gcm='git commit -m '
-alias gp:om ='git push origin master'
+alias gpom='git push origin master'
+alias gaa='git add .'
+alias gac='git add . && git commit -m'
 
 # Laravel
 alias pa='php artisan'
 alias pa:s='php artisan serve'
-alias pam:m='php artisan make:migration'
-alias pam:c='php aritsan make:controller'
-alias pam:md='php aritsan make:model'
+alias pa:mk:m='php artisan make:migration'
+alias pa:mk:c='php artisan make:controller'
+alias pa:mk:md='php artisan make:model'
 alias pa:m='php artisan migrate'
-alias pa:mr='php artisan migrate:rollback'
+alias pa:m:r='php artisan migrate:rollback'
 alias pa:rl='php artisan route:list'
+alias pa:db:seed='php artisan db:seed'
+alias t='vendor/bin/phpspec'
+alias t:r='vendor/bin/phpspec run'
 
 # Composer
 alias c='composer'
-alias csu='composer self-update'
+alias c:su='composer self-update'
 alias cu='composer update'
 alias cr='composer require'
 alias ci='composer install'
-alias ccp='composer create-project'
-alias cdu='composer dump-autoload'
-alias cgu='composer global update'
-alias cgr='composer global require'
+alias c:cp='composer create-project'
+alias c:d:a='composer dump-autoload'
+alias c:gu='composer global update'
+alias c:gr='composer global require'
 
 # ember 
 alias es='ember serve'
@@ -196,13 +209,13 @@ alias eg:v='ember generate view'
 alias eg:mock='ember generate http-mock'
 alias eg:proxy='ember generate http-proxy'
 alias eg:resource='ember generate resource'
-alias eg:t:acceptance='ember generate acceptance-test'
+alias eg:t:ac='ember generate acceptance-test'
 alias eg:t:component='ember generate component-test'
 alias eg:t:helper='ember generate helper-test'
 alias ei:bootstrap="ember install ember-cli-sass && ember install ember-cli-bootstrap-sassy && echo '@import \"bootstrap\";' > ./app/styles/app.scss && rm ./app/styles/app.css"
 
 # npm
-alias npmg="npm i -g "
+alias npm:g="npm i -g "
 
 # bower
 alias bi="bower install"
@@ -223,4 +236,8 @@ alias cd:sublime='cd Library/Application\ Support/Sublime\ Text\ 3'
 alias rf='rm -rf'
 
 #phpunit
-alias phpu:filter='phpunit --filter '
+alias pu:f='phpunit --filter '
+alias pu='phpunit'
+
+# PATH
+export PATH="/usr/local/sbin:$PATH"
