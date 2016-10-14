@@ -1,0 +1,41 @@
+<snippet>
+  <content><![CDATA[
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>$1</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="_token" content="{{ csrf_token() }}" />
+    <meta name="description" content="$2">
+    <meta name="author" content="$3">
+    {!! Html::style('css/vendor/all.css') !!}
+    {!! Html::style('frontend/css/all.css') !!}
+    
+  </head>
+  <body>
+
+    <div class="container">
+      @include('vendor.flash.message')
+      @yield('content')
+    </div>
+    
+    @include('includes/ga')
+
+    {!! Html::script('js/vendor/jquery.js') !!}
+    {!! Html::script('js/vendor/vue.js') !!}
+    {!! Html::script('js/vendor/vue-resource.js') !!}
+    {!! Html::script('js/vendor/all.js') !!}
+    
+    {!! Html::script('frontend/js/all.js') !!}
+
+  </body>
+</Html>
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:layout:frontend</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

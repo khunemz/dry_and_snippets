@@ -1,13 +1,14 @@
 <snippet>
   <content><![CDATA[
-@extends('layouts.master')
-
-@section('section')
-  $1
-@endsection
+public function $1() 
+{
+  // where to morph
+  return \$this->morphMany('App\\$2', '$3');
+}
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>l:extend</tabTrigger>
+  <tabTrigger>l:morphmany</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>
+

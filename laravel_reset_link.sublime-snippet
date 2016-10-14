@@ -1,13 +1,9 @@
 <snippet>
   <content><![CDATA[
-@extends('layouts.master')
-
-@section('section')
-  $1
-@endsection
+Click here to reset your password: {{ url('password/reset/'.\$token) }}
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>l:extend</tabTrigger>
+  <tabTrigger>l:resetlink</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>

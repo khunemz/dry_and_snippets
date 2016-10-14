@@ -1,13 +1,12 @@
 <snippet>
   <content><![CDATA[
-@extends('layouts.master')
-
-@section('section')
-  $1
-@endsection
+public function $1() 
+{
+  return \$this->hasManyThrough('App\\$1' , 'App\\$2' , 'self_id' , '$2_id');
+}
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>l:extend</tabTrigger>
+  <tabTrigger>l:hasmanythrough</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <!-- <scope>source.python</scope> -->
 </snippet>

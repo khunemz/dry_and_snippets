@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+<style>
+    #jumbotron {
+        margin-top: 20px;
+        height: 400px;
+    }
+</style>
+
+<div class="container">
+    <div class="jumbotron" id="jumbotron" align="center">
+        <h1 class="display-3">404 Not found</h1>
+        <p class="lead"></p>
+        <hr class="m-y-md">
+        <p>Sorry , an error has occured. Requested page not found</p>
+        <br>
+        <p class="lead">
+            <a class="btn btn-success btn-md" href="#" role="button">Back to home</a> &nbsp; or &nbsp; <a class="btn btn-info btn-md" href="#" role="button">Contact support</a>
+        </p>
+    </div>
+</div>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>404</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

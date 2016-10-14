@@ -1,0 +1,136 @@
+<snippet>
+  <content><![CDATA[
+var elixir = require('laravel-elixir');
+
+elixir(function(mix) {
+  mix 
+    
+    .copy(
+      'node_modules/font-awesome/fonts',
+      'public/css/fonts'
+    )
+    .copy(
+      'node_modules/bootstrap/fonts/*',
+      'public/css/fonts'
+    )
+    
+    /**
+     * ========================
+     * Stylesheets
+     * ========================
+     */
+
+    .copy(
+      'node_modules/normalize.css/normalize.css',
+      'resources/assets/css/libs/'
+    )
+    .copy(
+      'node_modules/bootstrap/dist/css/bootstrap.min.css',
+      'resources/assets/css/libs/'
+    )
+    .copy(
+      'node_modules/bootstrap/dist/css/bootstrap-theme.min.css',
+      'resources/assets/css/libs/'
+    )
+    // .copy(
+    //   'node_modules/bulma/css/bulma.css',
+    //   'resources/assets/css/libs/'
+    // )
+    .copy(
+      'node_modules/sweetalert/dist/sweetalert.css',
+      'resources/assets/css/libs/'
+    )
+    .copy(
+      'node_modules/owl.carousel/dist/assets/owl.theme.default.css',
+      'resources/assets/css/libs/'
+    )
+    .copy(
+      'node_modules/font-awesome/css/font-awesome.min.css',
+      'resources/assets/css/libs/'
+    )
+    .copy(
+      'node_modules/magnific-popup/dist/magnific-popup.css',
+      'resources/assets/css/libs/'
+    )
+
+    /** 
+     * ========================
+     * Javascript
+     * ========================
+     */
+    .copy(
+      'node_modules/jquery/dist/jquery.js',
+      'public/js/vendor'
+    )
+    .copy(
+      'node_modules/bootstrap/dist/js/bootstrap.js',
+      'resources/assets/js/libs/'
+    )
+    .copy(
+      'node_modules/sweetalert/dist/sweetalert.min.js',
+      'resources/assets/js/libs/'
+    )
+    .copy(
+      'node_modules/owl.carousel/dist/owl.carousel.min.js',
+      'resources/assets/js/libs/'
+    )
+    .copy(
+      'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
+      'resources/assets/js/libs/'
+    )
+    .copy(
+      'node_modules/mustache/mustache.min.js',
+      'resources/assets/js/libs/'
+    )
+    .copy(
+      'node_modules/vue/dist/vue.js',
+      'public/js/vendor'
+    )
+    .copy(
+      'node_modules/vue-resource/dist/vue-resource.js',
+      'public/js/vendor'
+    )
+    // ======= VENDORS ======= //
+ 
+    .styles([
+        'libs/*.css'
+      ], 'public/css/vendor')
+    .scripts([
+        'libs/*.js'
+      ], 'public/js/vendor')
+
+    // ======= FRONTEND ======= //
+    .styles([
+        'frontend/*.css'
+      ], 'public/frontend/css/')
+    .scripts([
+        'frontend/*.js'
+      ], 'public/frontend/js/')
+    .sass([
+
+      ], 'public/frontend/css/')
+    
+    // ======= BACKEND ======= // 
+    .styles([
+
+      ], 'public/backend/css/')
+    .scripts([
+
+      ], 'public/backend/js/')
+    .sass([
+
+      ], 'public/backend/css/')
+
+    // ======= VERSION CONTROL ======= // 
+    .version([
+        'public/frontend/css/all.css',
+        'public/frontend/js/all.js'
+      ]);
+});
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:gulp</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

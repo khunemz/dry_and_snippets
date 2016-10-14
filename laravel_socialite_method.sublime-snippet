@@ -1,0 +1,23 @@
+<snippet>
+  <content><![CDATA[
+// http://localhost:8000/auth/github/callback
+public function redirectToProvider(\$provider = 'github')
+    {
+      return Socialite::driver(\$provider)->redirect();
+    }
+    
+    public function handleProviderCallback(\$provider = 'github')
+    {
+        try {
+            \$oauth_user = Socialite::driver($provider)->user();
+        } catch (Exception \$e) {
+            echo 'Error from attemp logging in using Oauth : '.\$e;
+        }
+        return view('auth.oauth', compact('oauth_user'));
+    }
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:socialitemethod</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

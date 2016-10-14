@@ -1,0 +1,29 @@
+<snippet>
+  <content><![CDATA[
+// Authentication routes...
+Route::get('auth/login', [ 'uses' => 'Auth\AuthController@getLogin' , 'as' => 'auth.get.login']);
+Route::post('auth/login', [ 'uses' => 'Auth\AuthController@postLogin' , 'as' => 'auth.post.login']);
+Route::get('auth/logout', [ 'uses' => 'Auth\AuthController@getLogout' , 'as' => 'auth.get.logout']);
+
+// Registration routes...
+Route::get('auth/register', [ 'uses' => 'Auth\AuthController@getRegister', 'as' => 'auth.get.register']);
+Route::post('auth/register', [ 'uses' => 'Auth\AuthController@postRegister', 'as' => 'auth.post.register']);
+
+// Password reset link request routes...
+Route::get('password/email', ['uses' => 'Auth\PasswordController@getEmail', 'as' => 'password.get.email']);
+Route::post('password/email', ['uses' => 'Auth\PasswordController@postEmail', 'as' => 'password.post.email']);
+
+// Password reset routes...
+Route::get('password/reset/{token}', ['uses' => 'Auth\PasswordController@getReset', 'as' => 'password.get.reset']);
+Route::post('password/reset', ['uses' => 'Auth\PasswordController@postReset', 'as' => 'password.post.reset']);
+
+// Socialite 
+Route::get('auth/{provider}', [ 'uses' => 'Auth\AuthController@redirectToProvider' , 'as' => 'auth.get.redirect']);
+Route::get('auth/{provider}/callback', [ 'uses' => 'Auth\AuthController@handleProviderCallback' , 'as' => 'auth.get.callback']);
+Route::post('oauth/register', ['uses' => 'Auth\OauthController@postRegister', 'as' => 'oauth.post.register']);
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:auth:route</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

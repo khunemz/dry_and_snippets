@@ -1,0 +1,91 @@
+<snippet>
+  <content><![CDATA[
+<?php
+namespace App\Http\Controllers;
+
+use DB;
+use Illuminate\Http\Request;
+use App\${1};
+use App\User;
+use App\Http\Requests;
+use App\Http\Requests\${1}StoreRequest;
+use App\Http\Requests\${1}UpdateRequest;
+use App\Http\Controllers\Controller;
+
+class ${1}sController extends Controller
+{
+    private \$_${2};
+
+    function __construct(${1} $${2})
+    {
+        \$this->_${2} = $${2};
+    }
+   
+    public function index()
+    {
+        return view('${2}s.index', ['${2}s' => DB::table('${2}s')->paginate(15)]);
+    }
+
+    public function create()
+    {
+        return view('${2}s.create');
+    }
+    
+    public function store(${1}StoreRequest \$request)
+    {
+        try {
+            $${2} = ${1}::create(\$request->all());
+            flash('Successfully created' , 'success')->important();
+        } catch (Exception \$e) {
+            flash('Whoops something goes wrong please try again or contact a staff.' , 'danger')->important();
+            abort(500);
+        }
+        return redirect()->route('${2}s.show', ['${2}' => $${2}]);
+    }
+
+    public function show(\$id)
+    {
+        return view('${2}s.show', ['${2}' => \$this->_${2}->_find${1}(\$id)]);
+    }
+   
+    public function edit(\$id)
+    {
+        return view('${2}s.edit', ['${2}' => \$this->_${2}->_find${1}(\$id)]);
+    }
+   
+    public function update(${1}UpdateRequest \$request, \$id)
+    {
+        $${2} = \$this->_${2}->_find${1}(\$id);
+        // Assignment
+        // ------------------------------------ //
+        $${2}->${3} = \$request->${3};
+        // ------------------------------------ //
+        try{
+            $${2}->save();
+            flash('Successfully updated' , 'info')->important();
+        }catch (Exception \$e) {
+            flash('Whoops something goes wrong please try again or contact a staff.' , 'danger')->important();
+            abort(500);
+        }
+        return redirect('${2}s.show', ['${2}'=>$${2}]);
+    }
+
+    public function destroy(\$id)
+    {
+        \$this->_${2}->findOrFail(\$id)->delete();
+        flash('Successfully deleted' , 'info')->important();
+        return redirect('${2}s.index');
+    }
+
+    private function _find${1}(\$id)
+    {
+        return \$this->_${2}->findOrFail(\$id);
+    }
+}
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>l:crud:controller</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>embedding.php</scope>
+</snippet>
