@@ -45,17 +45,17 @@ class ${1}sController extends Controller
 
     public function show(\$id)
     {
-        return view('${2}s.show', ['${2}' => \$this->_${2}->_find${1}(\$id)]);
+        return view('${2}s.show', ['${2}' => \$this->_find${1}(\$id)]);
     }
    
     public function edit(\$id)
     {
-        return view('${2}s.edit', ['${2}' => \$this->_${2}->_find${1}(\$id)]);
+        return view('${2}s.edit', ['${2}' => \$this->_find${1}(\$id)]);
     }
    
     public function update(${1}UpdateRequest \$request, \$id)
     {
-        $${2} = \$this->_${2}->_find${1}(\$id);
+        $${2} = \$this->_find${1}(\$id);
         // Assignment
         // ------------------------------------ //
         $${2}->${3} = \$request->${3};
@@ -67,12 +67,12 @@ class ${1}sController extends Controller
             flash('Whoops something goes wrong please try again or contact a staff.' , 'danger')->important();
             abort(500);
         }
-        return redirect('${2}s.show', ['${2}'=>$${2}]);
+        return redirect()->route('${2}s.show', ['${2}' => $${2}]);
     }
 
     public function destroy(\$id)
     {
-        \$this->_${2}->findOrFail(\$id)->delete();
+        \$this->_find${1}(\$id)->delete();
         flash('Successfully deleted' , 'info')->important();
         return redirect('${2}s.index');
     }

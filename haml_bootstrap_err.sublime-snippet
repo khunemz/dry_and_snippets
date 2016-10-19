@@ -1,0 +1,17 @@
+<snippet>
+  <content><![CDATA[
+- if @$1.errors.any?
+  .alert.alert-warning.alert-dismissible.fade.in{:role => "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+    %strong
+      prohibited this $1 from being saved: #{pluralize(@$1.errors.count, "error")}
+    %ol
+      - @$1.errors.full_messages.each do |message|
+        %li= message
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>haml:bootstrap:err</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

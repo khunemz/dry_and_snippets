@@ -12,6 +12,7 @@
     <meta name="author" content="$3">
     {!! Html::style('css/vendor/all.css') !!}
     {!! Html::style('frontend/css/all.css') !!}
+    {!! Html::script('js/vendor/simplemde.min.js') !!}
     
   </head>
   <body>

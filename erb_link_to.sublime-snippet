@@ -1,0 +1,9 @@
+<snippet>
+  <content><![CDATA[
+<%= link_to '$1' , $2_path($3) , :class => '$4' %>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>erb:linkto</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

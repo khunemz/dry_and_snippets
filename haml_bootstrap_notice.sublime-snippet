@@ -1,0 +1,14 @@
+<snippet>
+  <content><![CDATA[
+- if notice
+  .alert.alert-info.alert-dismissible.fade.in{:role => "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+    %strong Message :
+    = notice
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>haml:bootstrap:notice</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
